@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
+
 @Document
 public class Zone {
 
@@ -16,12 +18,12 @@ public class Zone {
     @Field
     private int linkNumber;
     @Field
-    private String geometry;
+    private ArrayList<String> geometry;
 
     public Zone() {
     }
 
-    public Zone(String zoneName, int nodeNumber, int linkNumber, String geometry) {
+    public Zone(String zoneName, int nodeNumber, int linkNumber, ArrayList<String> geometry) {
         this.zoneName = zoneName;
         this.nodeNumber = nodeNumber;
         this.linkNumber = linkNumber;
@@ -60,11 +62,11 @@ public class Zone {
         this.linkNumber = linkNumber;
     }
 
-    public String getGeometry() {
+    public ArrayList<String> getGeometry() {
         return geometry;
     }
 
-    public void setGeometry(String geometry) {
+    public void setGeometry(ArrayList<String> geometry) {
         this.geometry = geometry;
     }
 

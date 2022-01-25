@@ -24,7 +24,7 @@ public class ZoneController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/test")
     public String saveZone(@RequestBody  Zone zone){
-        zoneRepository.save(new Zone(zone.getZoneName(),zone.getNodeNumber(),zone.getLinkNumber(),zone.getGeometry()));
+        zoneRepository.save(zone);
         return "Added";
     }
 }
