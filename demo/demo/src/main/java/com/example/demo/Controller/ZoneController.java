@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.model.Zone;
 import com.example.demo.repository.ZoneRepository;
+import com.example.demo.service.ZoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,20 +12,19 @@ import java.util.List;
 public class ZoneController {
 
 
-    private final ZoneRepository zoneRepository;
+    private final ZoneService zoneService;
 
     @Autowired
-    public ZoneController(ZoneRepository zoneRepository){
-        this.zoneRepository = zoneRepository;
+    public ZoneController( ZoneService zoneService){
+        this.zoneService = zoneService;
     }
     @GetMapping("/home")
     public List<Zone> getZone(){
-        return zoneRepository.findAll();
+        return zoneService.getZone();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/test")
+    @RequestMapping(method = RequestMethod.POST, value = "/saveZone")
     public String saveZone(@RequestBody  Zone zone){
-        zoneRepository.save(new Zone(zone.getZoneName(),zone.getNodeNumber(),zone.getLinkNumber(),zone.getGeometry()));
-        return "Added";
+        return zoneService.saveZone(zone) ;
     }
 }
