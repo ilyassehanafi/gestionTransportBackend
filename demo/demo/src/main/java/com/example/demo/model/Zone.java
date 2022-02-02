@@ -18,12 +18,12 @@ public class Zone {
     @Field
     private int linkNumber;
     @Field
-    private ArrayList<String> geometry;
+    private ArrayList<?> geometry;
 
     public Zone() {
     }
 
-    public Zone(String zoneName, int nodeNumber, int linkNumber, ArrayList<String> geometry) {
+    public Zone(String zoneName, int nodeNumber, int linkNumber, ArrayList<?> geometry) {
         this.zoneName = zoneName;
         this.nodeNumber = nodeNumber;
         this.linkNumber = linkNumber;
@@ -62,17 +62,17 @@ public class Zone {
         this.linkNumber = linkNumber;
     }
 
-    public ArrayList<String> getGeometry() {
+    public ArrayList<?> getGeometry() {
         return geometry;
     }
 
-    public void setGeometry(ArrayList<String> geometry) {
+    public void setGeometry(ArrayList<?> geometry) {
         this.geometry = geometry;
     }
 
     @Override
     public String toString() {
-        return String.format("Zone[id='%s', zoneName='%s', nodeNumber='%d', linkNumber= '%d', geometry = '%s']"
+        return String.format("Zone[id='%s', zoneName='%s', nodeNumber='%d', linkNumber= '%d', geometry = '']"
                 ,id,zoneName,nodeNumber,linkNumber, geometry);
     }
 }

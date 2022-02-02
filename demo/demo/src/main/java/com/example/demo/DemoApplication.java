@@ -24,15 +24,5 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-
-		if(zoneRepository.findAll().isEmpty()){
-			ArrayList<String> geom = new ArrayList<String>();
-			geom.add("GEOM(5,5)");
-			zoneRepository.save(new Zone("Zone",5,2,geom));
-		}
-
-		for(Zone zone: zoneRepository.findAll()){
-			System.out.println(zone);
-		}
 	}
 }
